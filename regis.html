@@ -1,0 +1,172 @@
+<html>
+<style>
+body{
+	margin:0;
+	padding:0;
+	background: url(images/regisbanner3.png);
+	background-size: cover;
+	background-position: center;
+	font-family: sans-serif;
+	color: red;
+	margin-top:60px;
+}
+</style>
+<body >
+
+<script type="text/javascript">
+	function validation(form)
+	{
+		var flag=true;
+		var v=/^[a-zA-Z ]+$/
+		if(form.txtname.value=="")
+		{
+			document.getElementById("error_name").innerHTML="*Please Enter Your Name";
+			form.txtname.focus();
+			flag=false;
+		}else if(!v.test(form.txtname.value))
+		{
+			document.getElementById("error_name").innerHTML="*Please Enter Only characters in Name";
+			form.txtname.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_name").innerHTML="";
+		} 
+		
+		
+		if(form.txtadd.value=="")
+		{
+			document.getElementById("error_add").innerHTML="*Please Enter Your Address";
+			form.txtadd.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_add").innerHTML="";
+		}
+		
+		if(form.txtcity.value=="")
+		{
+			document.getElementById("error_city").innerHTML="*Please Enter Your City Name";
+			form.txtcity.focus();
+			flag=false;
+		}else if(!v.test(form.txtcity.value))
+		{
+			document.getElementById("error_city").innerHTML="*Please Enter Only characters in City Name";
+			form.txtcity.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_city").innerHTML="";
+		}
+		
+		
+		var v=/^[0-9]+$/
+		if(form.txtmno.value=="")
+		{
+			document.getElementById("error_mno").innerHTML="*Please Enter Your Mobile No";
+			form.txtmno.focus();
+			flag=false;
+		}else if(form.txtmno.value.length!=10){
+			document.getElementById("error_mno").innerHTML="*Please Enter 10 Digits in Mobile No";
+			form.txtmno.focus();
+			flag=false;
+		}else if(!v.test(form.txtmno.value))
+		{
+			document.getElementById("error_mno").innerHTML="*Please Enter Only Digits in Mobile No";
+			form.txtmno.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_mno").innerHTML="";
+		}
+		
+		var v=/^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-_]+\.([a-zA-Z]{2,4})$/
+		if(form.txtemail.value=="")
+		{
+			document.getElementById("error_email").innerHTML="*Please Enter Email ID";
+			form.txtemail.focus();
+			flag=false;
+		}else if(!v.test(form.txtemail.value))
+		{
+			document.getElementById("error_email").innerHTML="*Please Enter Proper Email ID";
+			form.txtemail.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_email").innerHTML="";
+		}
+		
+		if(form.txtpwd.value=="")
+		{
+			document.getElementById("error_pwd").innerHTML="*Please Enter Your Password";
+			form.txtpwd.focus();
+			flag=false;
+		}else if(form.txtpwd.value.length<6){
+			document.getElementById("error_pwd").innerHTML="*Please Enter Password More Than 6 Characters";
+			form.txtpwd.focus();
+			flag=false;
+		}else if(form.txtpwd.value.length>10){
+			document.getElementById("error_pwd").innerHTML="*Please Enter Password Less Than 10 Characters";
+			form.txtpwd.focus();
+			flag=false;
+		}else{
+			document.getElementById("error_pwd").innerHTML="";
+		}
+		
+		if(flag==true){
+			alert("Register Successfull");
+			window.location.href="home.html";
+			
+		}
+	}
+		
+</script>
+<form>
+<table width="50%" align="center" border="1" height="500px">
+	<tr>
+		<th colspan="2"><h1>REGISTRATION FORM</h1></th>
+		
+	</tr>
+	<tr>
+		<td><b>Enter Name</b></td>
+		<td><input type="text" name="txtname" placeholder="please enter your name">
+		<span id="error_name" style="color:red;"></span>
+		</td>
+		
+	</tr>
+	<tr>
+		<td><b>Enter Address</b></td>
+		<td><textarea name="txtadd" placeholder="please enter your address"></textarea>
+		<span id="error_add" style="color:red;"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Enter City</b></td>
+		<td><input type="text" name="txtcity" placeholder="please enter your city">
+		<span id="error_city" style="color:red;"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Enter Mobile No</b></td>
+		<td><input type="text" name="txtmno" placeholder="please enter your mobile no">
+		<span id="error_mno" style="color:red;"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Enter Email Id</b></td>
+		<td><input type="text" name="txtemail" placeholder="please enter your Email ID">
+		<span id="error_email" style="color:red;"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Enter Password</b></td>
+		<td><input type="password" name="txtpwd" placeholder="please enter your password">
+		<span id="error_pwd" style="color:red;"></span>
+		</td>
+	</tr>
+	<tr>
+		
+		<td COLSPAN="2" ALIGN="CENTER">
+			<input type="button" name="btnregis" value="REGISTER" onclick="validation(form);">
+			<input type="reset" name="btncancel" value="CANCEL">
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
